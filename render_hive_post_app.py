@@ -5,8 +5,12 @@ from beem import Steem
 app = Flask(__name__)
 
 # Initialize with your Posting Key
-steem = Steem(keys=["PASTE_YOUR_POSTING_KEY_HERE"])
 
+# 修正前（ダメ）
+# steem = Steem(keys=["PASTE_YOUR_POSTING_KEY_HERE"])
+
+# ✅ 修正後（環境変数から取得）
+steem = Steem(keys=[os.getenv("POSTING_KEY")])
 @app.route('/hive', methods=['POST'])
 def hive_post():
     data = request.json
