@@ -1,4 +1,5 @@
-
+import os
+from beem import Steem
 from flask import Flask, request
 from beem import Steem
 
